@@ -1,25 +1,36 @@
-# README
+<h3>概要</h3>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+写真を投稿し、褒めてもらえるアプリ
 
-Things you may want to cover:
+<h3>機能一覧</h3>
 
-* Ruby version
+・画像アップロード機能
+・画像詳細機能
+・ログイン、ログアウト機能(Twitter, Facebookによるログイン可能)
+・管理者機能（登録ユーザーを管理）
+・ユーザー詳細機能
+・お気に入り機能
+・コメント機能
+・ページネーション機能
+・フォロー、フォロワー機能
 
-* System dependencies
+<h3>使用技術一覧</h3>
 
-* Configuration
+・Ruby on Rails -v 6.0.2
+・AWS（本番環境にデプロイ）
+・bootstrap
+・carrierwave
+・rmagic
+・Cloudinary
+・devise（認証機能）
+・ominiauth-twitter
+・ominiauth-facebook
+・Ajax(お気に入り,コメント機能)
+・kaminari（ページネーション機能）
+・faker
 
-* Database creation
+・環境構築 -> Virtual Box + Vagrant
+・テスト -> Capybara + RSpec
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# Homeru
+<h3>工夫した点</h3>
+・色を三色以上使わないなどUIを意識しました。・画像を拡大できるようにしました。・管理者ユーザーのみに削除権限を付与しました。・禁止ワードを設定しました。
