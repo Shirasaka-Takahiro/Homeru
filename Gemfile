@@ -58,9 +58,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'rails-i18n'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'font-awesome-rails'
 gem "loofah", ">= 2.3.1"
 gem 'faker'
+gem 'carrierwave'
+gem 'rmagick'

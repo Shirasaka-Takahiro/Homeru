@@ -1,2 +1,9 @@
-<h1>Reports#index</h1>
-<p>Find me in app/views/reports/index.html.erb</p>
+<h1>投稿一覧</h1>
+<div class="report_all">
+  <%= @reports.each do |report| %>
+    <p><%= link_to report.title, report_path(report.id) %></p>
+    <span><%= image_tag report.image_url %></span>
+    <p><%= report.content %></p>
+    <p><%= report.created_at %></p>
+  <% end %>
+</div>

@@ -1,0 +1,17 @@
+<h1>新規投稿</h1>
+<%= form_with model: @report, local: true do | f | %>
+  <div class="form-group">
+    <%= f.label :title %>
+  <%= f.text_field :title, placeholder: "タイトルを記述" %>
+  </div>
+  <div>
+    <%= f.file_field :image, class: 'btn btn-primary'%>
+    <%= f.submit 'アップロードする', class: 'btn btn-primary' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content %>
+  <%= f.text_area :content, class: 'form-control', placeholder: "内容を記述" %>
+  </div>
+  <%= f.submit '投稿', class: 'btn btn-primary' %> 
+
+<% end %>
