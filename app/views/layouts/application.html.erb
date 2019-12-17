@@ -35,7 +35,7 @@
           <a class="nav-link"><%= link_to "新規投稿", new_report_path %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">マイページ</a>
+        <a class="nav-link"><%= link_to "マイページ", user_path(current_user.id) %></a>          
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">

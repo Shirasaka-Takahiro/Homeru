@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root to: 'reports#index'
 
   resources :reports
@@ -7,5 +8,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: "users/sessions",
   }
+
+  namespace :admin do
+    resources :users
+  end
+
+  resources :users
 
 end
