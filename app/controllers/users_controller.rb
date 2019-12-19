@@ -9,4 +9,11 @@ class UsersController < ApplicationController
 
   def edit
   end
+
+  def likes
+    @user = User.find(params[:id])
+    @favposts = @user.favposts.page(params[:page])
+    counts(@user)
+  end
+
 end
