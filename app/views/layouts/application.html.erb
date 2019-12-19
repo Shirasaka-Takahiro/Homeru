@@ -18,30 +18,18 @@
     </button>
 
     <div class="collapse navbar-collapse" id="Homeru-home">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link"><%= link_to "ホーム", root_path %></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"><%= link_to "ログイン", user_session_path %></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>      
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"><%= link_to "新規登録", new_user_registration_path %></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"><%= link_to "新規投稿", new_report_path %></a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link"><%= link_to "マイページ", user_path(current_user.id) %></a>          
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      <div class="navbar-nav mr-auto">
+        <%= link_to "ホーム", root_path, class: "nav-item nav-link" %>
+        <%= link_to "ログイン", user_session_path, class: "nav-item nav-link" %>  
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link" if user_signed_in? %>
+        <%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link" %>
+        <%= link_to "新規投稿", new_report_path, class: "nav-item nav-link" %>
+        <%= link_to "マイページ", user_path(current_user.id), class: "nav-item nav-link" if user_signed_in? %>
+      </div>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
       </div>
     </nav>
 

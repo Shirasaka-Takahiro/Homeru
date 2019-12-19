@@ -13,10 +13,6 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process :resize_to_limit => [700, 700]
-
-  process :convert => 'jpg'
-
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -33,6 +29,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
+
   version :thumb do
     process resize_to_fit: [150, 150]
   end
@@ -54,6 +51,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   def extension_whitelist
        %w(jpg jpeg gif png)
   end
+
+  process :resize_to_limit => [640, 640]
+
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
