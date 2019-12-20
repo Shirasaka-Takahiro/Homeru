@@ -1,11 +1,9 @@
-<% if current_user.favreport?(report) %>
-  <%= form_for(current_user.favorites.find_by(report_id: report.id), html: { method: :delete }) do |f| %>
-    <%= hidden_field_tag :report_id, report.id %>
-    <%= f.submit 'お気に入り登録解除', class: 'btn btn-danger' %>
+<% if user_signed_in? %>
+  <% if report.favorited_by?(current_user) %>
+    <p><i class="fas fa-heart"><%= link_to report.favorites.count, report_favorites_path(report.id), method: :delete %></i></p>
+  <% else %>
+    <p><i class="fas fa-heart"><%= link_to report.favorites.count, report_favorites_path(report.id), method: :post %></i></p>
   <% end %>
 <% else %>
-  <%= form_for(current_user.favorites.build) do |f| %>
-    <%= hidden_field_tag :report_id, report.id %>
-    <%= f.submit 'お気に入り登録', class: 'btn btn-primary' %>
-  <% end %>
+  <p><%= report.favorites.count %></p>
 <% end %>

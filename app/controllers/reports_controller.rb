@@ -7,6 +7,7 @@ class ReportsController < ApplicationController
 
   def index
     @reports = Report.all
+    @report = Report.find_by(params[:id])
   end
 
   def edit
