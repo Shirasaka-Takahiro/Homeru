@@ -6,5 +6,11 @@
   <p><%= @report.created_at %></p>
   <p><%= link_to "一覧画面", reports_url %></p>
   <p><%= render 'favorites/fav_button', report: @report %></p>
+  <div id="comments_area">
+    <%= render partial: 'comments/index', locals: { comments: @comments } %>
+  </div>
+  <% if user_signed_in? %>
+    <%= render partial: 'comments/form', locals: { comment: @comment, report: @report } %>
+  <% end %>
 </div>
 

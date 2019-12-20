@@ -1,0 +1,8 @@
+<%= form_with(model: [report, comment]) do |form| %>
+    <div>
+      <%= form.text_area :content %>
+    </div>
+    <div class="actions">
+      <%= form.submit "コメントする" %>
+    </div>
+<% end %>

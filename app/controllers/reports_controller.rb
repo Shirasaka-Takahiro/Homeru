@@ -3,6 +3,8 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.find(params[:id])
+    @comment = Comment.new
+    @comments = @report.comments
   end
 
   def index
