@@ -1,5 +1,10 @@
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
+  <% if comment.user.image? %>
+    <p><%= image_tag comment.user.image.thumb100.url%></p>
+  <% else %>
+    <p><%= image_tag 'noimage.png', :size => '100x100' %></p>
+  <% end %>
     <p><%= link_to "#{comment.user.username}さん", user_path(comment.user.id) %></p>
     <p>コメント<%= comment.content %></p>
     <% if comment.user == current_user %>

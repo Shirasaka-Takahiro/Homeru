@@ -13,4 +13,5 @@
     <p><%= report.created_at %></p>
     <%= render 'favorites/fav_button', report: @report %>
   <% end %>
+  <%= paginate @reports %>
 </div>

@@ -67,3 +67,8 @@ gem "loofah", ">= 2.3.1"
 gem 'faker'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
+gem 'dotenv-rails'
+gem 'omniauth'
+gem 'omniauth-twitter'
