@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  PER = 10
+  PER = 7
 
   def show
     @report = Report.find(params[:id])
@@ -11,6 +11,7 @@ class ReportsController < ApplicationController
   def index
     @reports = Report.all.order(id: "DESC").page(params[:page]).per(PER).search(params[:search])
     @report = Report.find_by(params[:id])
+    @user = User.find_by(params[:id])
   end
 
   def edit

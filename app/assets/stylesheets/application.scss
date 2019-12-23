@@ -1,1 +1,92 @@
 @import "bootstrap";
+@import "font-awesome";
+
+// media queli
+$pc: 1024px; // PC
+$tab: 680px; // tablet
+$sp: 480px;  // smartphone
+
+@mixin pc {
+    @media (max-width: ($pc)) {
+      @content;
+    }
+  }
+@mixin tab {
+    @media (max-width: ($tab)) {
+      @content;
+    }
+  }
+@mixin sp {
+    @media (max-width: ($sp)) {
+      @content;
+    }
+}
+
+// button
+
+.btn {
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #FFF;
+    background: #5BFF7F;
+    border: solid 1px #5BFF7F;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+
+    &:active {
+        border: solid 1px #5BFF7F;
+        box-shadow: none;
+        text-shadow: none;
+    }
+}
+
+// heart-icon 
+
+.heart {
+  color: red;
+}
+
+// user-image
+
+.user-image {
+    border-radius: 50%;
+}
+
+h1 {
+    text-align: center;
+}
+
+// image
+
+.image {
+    width: 100%;
+    max-width: 100%;
+}
+
+// report_index
+
+.report_index {
+
+  .btn {
+    width: 300px;
+  }
+
+  div {
+    text-align: center;
+  }
+  
+}
+
+.report {
+    border: solid 0.05px black;
+    padding: 20px;
+    margin: 20px 15% 25px 15%;
+
+    .report_comment {
+      display: block;
+    }
+
+}

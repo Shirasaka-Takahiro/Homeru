@@ -12,7 +12,7 @@
     <%= link_to report.title, report_path(report.id) %>
   <% end %>
   <%= @user.profile %>
-  <% if user_signed_in? && current_user %>
+  <% if user_signed_in? && current_user == @user %>
     <%= link_to 'プロフィールを編集する', edit_user_registration_path(@user.id) %>
   <%  end%>
 </div>

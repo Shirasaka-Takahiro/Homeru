@@ -1,8 +1,10 @@
 <% if user_signed_in? %>
   <% if report.favorited_by?(current_user) %>
-    <p><i class="fas fa-heart"><%= link_to report.favorites.count, report_favorites_path(report.id), method: :delete %></i></p>
+    <%= link_to fa_icon("heart"), report_favorites_path(report.id), method: :delete, class: 'heart' %>
+    <%= report.favorites.count %>
   <% else %>
-    <p><i class="fas fa-heart"><%= link_to report.favorites.count, report_favorites_path(report.id), method: :post %></i></p>
+    <%= link_to fa_icon("heart"), report_favorites_path(report.id), method: :post, class: 'heart' %>
+    <%= report.favorites.count %>
   <% end %>
 <% else %>
   <p><%= report.favorites.count %></p>
