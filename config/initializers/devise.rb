@@ -260,7 +260,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :twitter, ENV['TWITTER_ID'], ENV['TWITTER_APP_SECRET'], scope: 'email', callback_url: 'http://192.168.33.22.xip.io:3000/users/auth/twitter/callback'
+  config.omniauth :twitter, ENV['TWITTER_ID'], ENV['TWITTER_APP_SECRET'], scope: 'email', callback_url: 'http://192.168.33.22:3000/users/auth/twitter/callback'
   config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET_KEY']
 
   # ==> Warden configuration
