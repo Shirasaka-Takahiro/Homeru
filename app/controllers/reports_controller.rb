@@ -9,7 +9,7 @@ class ReportsController < ApplicationController
   end
 
   def index
-    @reports = Report.all.page(params[:page]).per(PER)
+    @reports = Report.all.order(id: "DESC").page(params[:page]).per(PER).search(params[:search])
     @report = Report.find_by(params[:id])
   end
 

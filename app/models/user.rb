@@ -27,6 +27,14 @@ class User < ApplicationRecord
     user
   end
 
+  def self.search(search)
+    if search
+      User.where(['username LIKE ?', "%#{search}%"])
+    else
+      User.all
+    end
+  end
+
   private
  
   def self.dummy_email(auth)
