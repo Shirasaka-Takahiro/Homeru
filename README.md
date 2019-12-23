@@ -12,6 +12,7 @@
 ・お気に入り機能
 ・コメント機能
 ・ページネーション機能
+・検索機能
 ・フォロー、フォロワー機能
 
 <h3>使用技術一覧</h3>
@@ -25,7 +26,7 @@
 ・devise（認証機能）
 ・ominiauth-twitter
 ・ominiauth-facebook
-・Ajax(お気に入り,コメント機能)
+・Ajax(コメント機能)
 ・kaminari（ページネーション機能）
 ・faker
 
