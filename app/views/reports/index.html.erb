@@ -12,10 +12,9 @@
           <p class="report_title">タイトル: <%= link_to report.title, report_path(report.id) %></p>
           <%= image_tag report.image.url, class: 'image' %>
           <span class="report_date"><%= report.created_at %></span>
-          <p><%= render 'favorites/fav_button', report: @report %></p>
           <p><%= "#{report.user.username}: #{report.content}" %></p>
           <p><%= link_to "コメントする", report_path(report.id) %></p>
         </section>
       <% end %>
-    <%= paginate @reports %>
+    <div class="pagination"><%= paginate @reports %></div>
 </section>

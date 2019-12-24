@@ -67,6 +67,47 @@ h1 {
     max-width: 100%;
 }
 
+// pagination
+
+.pagination {
+  justify-content: center;
+}
+
+// user_session
+
+.user_session {
+  margin: 20px 0 0 15%;
+  display: flex;
+
+  .user_login {
+    flex-direction: column;
+  }
+
+  .links {
+    flex-direction: column;
+    margin: 45px 0 0 15px;
+  }
+
+}
+
+// report_new 
+
+.report_new {
+  text-align: center;
+
+  .new {
+    border: solid 0.05px black;
+    display: inline-block;
+    text-align: left;
+    padding: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 25%;
+  }
+
+}
+
 // report_index
 
 .report_index {
@@ -121,8 +162,104 @@ h1 {
 #comments_area {
   margin: 5px 0 15px 0;
   
-  span {
-    margin-left: 10%;
+  .comment_content {
+    margin: 2% 1% 1% 1%;
   }
 
 }
+
+// user_show
+
+.user_mypage {
+  border: solid 0.05px black;
+  margin: 10px 10% 15px 10%;
+
+  .btn {
+    width: 300px;
+  }
+
+  section {
+    text-align: center;
+    margin: 20px;
+  }
+
+  .user_prof {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .user_edit {
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .user_repo_fav {
+    display: flex;
+    justify-content: center;
+
+    .user_reports {
+      border: solid 0.05px black;
+      padding: 20px;
+      margin: 20px;
+    }
+
+    .user_favs {
+      border: solid 0.05px black;
+      padding: 20px;
+      margin: 20px;
+    }
+
+  }
+
+}
+
+// user_registration
+
+.user_registration {
+  margin: 20px 0 0 15%;
+  display: flex;
+
+  .links {
+    margin: 45px 0 0 15px;
+  }
+
+}
+
+
+// user_registration_edit
+
+.regi_edit {
+  text-align: center;
+  padding: 20px;
+  
+
+  .edit {
+    display: inline-block;
+    border: solid 0.05px black;
+    text-align: left;
+    padding: 3%;
+  }
+
+}
+
+// admin_user_index 
+
+.user_search {
+  margin: 10px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
