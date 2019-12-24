@@ -1,16 +1,23 @@
-<h1>詳細ページ</h1>
-<div class="report_all">
-  <p><%= @report.title %></p>
-  <span><%= image_tag @report.image_url %></span>
-  <p><%= @report.content %></p>
-  <p><%= @report.created_at %></p>
-  <p><%= link_to "一覧画面", reports_url %></p>
-  <p><%= render 'favorites/fav_button', report: @report %></p>
-  <div id="comments_area">
-    <%= render partial: 'comments/index', locals: { comments: @comments } %>
+<div class="report_show">
+  <h1>投稿詳細</h1>
+  <section><%= link_to "一覧画面", reports_url, class: "btn index_btn" %></section>
+  <div class="report_description">
+    <% if @report.user.image? %>
+      <%= image_tag @report.user.image.thumb50.url, class: 'user_image' %>
+    <% else %>
+      <%= image_tag 'noimage.png', :size => '50x50', class: 'user_image' %>
+    <% end %>
+    <%= @report.user.username %>
+    <p class="report_title">タイトル: <%= @report.title %></p>
+    <%= image_tag @report.image_url, class: "image" %>
+    <span class="report_date"><%= @report.created_at %></span>
+    <p><%= render 'favorites/fav_button', report: @report %></p>
+    <p><%= "#{@report.user.username}: #{@report.content}" %></p>
+    <div id="comments_area">
+      <%= render partial: 'comments/index', locals: { comments: @comments } %>
+    </div>
+    <% if user_signed_in? %>
+      <%= render partial: 'comments/form', locals: { comment: @comment, report: @report } %>
+    <% end %>
   </div>
-  <% if user_signed_in? %>
-    <%= render partial: 'comments/form', locals: { comment: @comment, report: @report } %>
-  <% end %>
 </div>
-

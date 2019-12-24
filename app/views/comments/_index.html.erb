@@ -1,14 +1,14 @@
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
   <% if comment.user.image? %>
-    <p><%= image_tag comment.user.image.thumb100.url%></p>
+    <%= image_tag comment.user.image.thumb30.url, class: "user_image" %>
   <% else %>
-    <p><%= image_tag 'noimage.png', :size => '100x100' %></p>
+    <%= image_tag 'noimage.png', :size => '30x30', class: "user_image" %>
   <% end %>
-    <p><%= link_to "#{comment.user.username}さん", user_path(comment.user.id) %></p>
-    <p>コメント<%= comment.content %></p>
+    <%= link_to "#{comment.user.username}さん", user_path(comment.user.id) %>
+    : <%= comment.content %>
     <% if comment.user == current_user %>
-      <p><%= link_to '削除', report_comment_path(comment.report_id, comment.id), method: :delete, remote: true %></p>
+      <span><%= link_to '削除', report_comment_path(comment.report_id, comment.id), method: :delete, remote: true %></span>
     <% end %>
   <% end %>
 <% end %>

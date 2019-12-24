@@ -51,12 +51,13 @@ $sp: 480px;  // smartphone
 
 // user-image
 
-.user-image {
+.user_image {
     border-radius: 50%;
 }
 
 h1 {
     text-align: center;
+    padding: 5px;
 }
 
 // image
@@ -82,11 +83,46 @@ h1 {
 
 .report {
     border: solid 0.05px black;
-    padding: 20px;
+    padding: 10px;
     margin: 20px 15% 25px 15%;
 
     .report_comment {
       display: block;
     }
+
+}
+
+.report_title {
+  margin: 10px 0 20px 0;
+}
+
+// report_show
+
+.report_description {
+  border: solid 0.05px black;
+  margin: 10px 10% 10px 10%;
+  padding: 10px;
+}
+
+.report_show {
+
+  .btn {
+    width: 300px;
+  }
+
+  section {
+    text-align: center;
+  }
+
+}
+
+// comment
+
+#comments_area {
+  margin: 5px 0 15px 0;
+  
+  span {
+    margin-left: 10%;
+  }
 
 }
