@@ -15,3 +15,25 @@ require('jquery')
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+
+// back-to-top
+$(function () {
+    var topBtn = $('#back-to-top');
+    topBtn.hide();
+    // ボタンを表示
+    $(window).scroll(function () {
+        if($(this).scrollTop() > 200) {
+            topBtn.fadeIn();
+        } else {
+            topBtn.fadeOut();
+        }
+    });
+    // トップへ戻る
+    topBtn.click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
+});

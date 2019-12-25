@@ -1,6 +1,6 @@
 <div class="user_mypage">
   <h1><%= "#{@user.username}さんのページ" %></h1>
-  <% if @user.try(:admin?) %>
+  <% if user_signed_in? && @user.try(:admin?) %>
     <section><%= link_to '管理者画面', admin_users_path, class: 'btn' %></section>
   <% end %>
   <div class="user_prof">

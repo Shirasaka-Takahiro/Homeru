@@ -22,6 +22,7 @@ $sp: 480px;  // smartphone
     }
 }
 
+
 // button
 
 .btn {
@@ -73,6 +74,23 @@ h1 {
   justify-content: center;
 }
 
+// back-to-top-button
+
+#back-to-top {
+  position: fixed;
+  text-align: right;
+  bottom: 20px;
+  right: 20px;
+  &:hover {
+      text-decoration: none;
+  }
+  .btn {
+      color: white;
+  }
+  
+}
+
+
 // user_session
 
 .user_session {
@@ -123,9 +141,10 @@ h1 {
 }
 
 .report {
-    border: solid 0.05px black;
+    box-shadow: 3px 3px 3px 3px black;
     padding: 10px;
     margin: 20px 15% 25px 15%;
+    background-color: #EEEEEE;
 
     .report_comment {
       display: block;
@@ -140,7 +159,8 @@ h1 {
 // report_show
 
 .report_description {
-  border: solid 0.05px black;
+  box-shadow: 3px 3px 3px 3px black;  
+  background-color: #EEEEEE;
   margin: 10px 10% 10px 10%;
   padding: 10px;
 }
@@ -171,7 +191,8 @@ h1 {
 // user_show
 
 .user_mypage {
-  border: solid 0.05px black;
+  box-shadow: 3px 3px 3px 3px black;  
+  background-color: #EEEEEE;
   margin: 10px 10% 15px 10%;
 
   .btn {
@@ -203,13 +224,11 @@ h1 {
     justify-content: center;
 
     .user_reports {
-      border: solid 0.05px black;
       padding: 20px;
       margin: 20px;
     }
 
     .user_favs {
-      border: solid 0.05px black;
       padding: 20px;
       margin: 20px;
     }
@@ -240,7 +259,8 @@ h1 {
 
   .edit {
     display: inline-block;
-    border: solid 0.05px black;
+    box-shadow: 3px 3px 3px 3px black;    
+    background-color: #EEEEEE;
     text-align: left;
     padding: 3%;
   }
