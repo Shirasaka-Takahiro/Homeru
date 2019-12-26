@@ -25,6 +25,16 @@
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link" if user_signed_in? %>
           <%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link" %>
           <%= link_to "マイページ", user_path(current_user.id), class: "nav-item nav-link" if user_signed_in? %>
+          <% if current_page?(reports_path) or (root_path) %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ソート</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <p><%= link_to "投稿順", sort: "id DESC" %></p>
+                <p><%= link_to "古い順", sort: "created_at" %></p>
+                <p><%= link_to "タイトル順", sort: "title" %></p>
+              </div>
+            </li>
+          <% end %>
         </div>
           <%= form_tag(reports_path, :method => 'get') do %>
             <%= text_field_tag :search %>

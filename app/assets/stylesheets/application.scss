@@ -90,6 +90,19 @@ h1 {
   
 }
 
+// dropdown-menu
+
+.dropdown-menu {
+  background-color: #F5F5F5;
+  text-align: center;
+  border-radius: 8%;
+}
+
+// container
+
+.container {
+  text-align: center;
+}
 
 // user_session
 
@@ -114,7 +127,8 @@ h1 {
   text-align: center;
 
   .new {
-    border: solid 0.05px black;
+    box-shadow: 2px 2px 2px 2px black;  
+    background-color: #F5F5F5;
     display: inline-block;
     text-align: left;
     padding: 20px;
