@@ -4,7 +4,7 @@
       <% @reports.each do |report| %>
         <section class="report">
           <% if report.user.image? %>
-          <a href="images/image-1.jpg" data-lightbox="image-1" data-title="My caption"<%= image_tag report.user.image.thumb50.url.to_s, class: 'user_image' %></a>
+            <%= image_tag report.user.image.thumb50.url.to_s, class: 'user_image' %>
           <% else %>
             <%= image_tag 'noimage.png', :size => '50x50', class: 'user_image' %>
           <% end %>

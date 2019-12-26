@@ -38,3 +38,16 @@ $(function () {
     });
 });
 
+// slidedown
+$(function () {
+	$('nav').hide();
+	$(window).scroll(function () {
+		if($(this).scrollTop() > 300) {
+			$('nav').slideDown();
+		} else {
+			$('nav').slideUp();
+		}
+	});
+});
+
+
