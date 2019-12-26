@@ -13,7 +13,11 @@
           <%= image_tag report.image.url.to_s, class: 'image' %>
           <span class="report_date"><%= report.created_at %></span>
           <p><%= "#{report.user.username}: #{report.content}" %></p>
-          <p><%= link_to "コメントする", report_path(report.id) %></p>
+          <% if user_signed_in? %>
+            <p><%= link_to "コメントする", report_path(report.id) %></p>
+          <% else %>
+            <div><%= link_to "コメントしてみませんか？", new_user_registration_path, class: 'btn' %></div>
+          <% end %>
         </section>
       <% end %>
     <div class="pagination"><%= paginate @reports %></div>
