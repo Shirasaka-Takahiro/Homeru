@@ -38,3 +38,6 @@ $(function () {
     });
 });
 
+$(function() {
+    $('#description').hide().fadeIn();
+});

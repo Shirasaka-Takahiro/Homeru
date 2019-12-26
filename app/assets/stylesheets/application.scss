@@ -189,6 +189,10 @@ h1 {
     text-align: center;
   }
 
+  section {
+    text-align: center;
+  }
+
 }
 
 // comment
@@ -288,7 +292,28 @@ h1 {
   text-align: center;
 }
 
-// lightbox
+// description
+
+.app_description {
+  text-align: center;
+  box-shadow: 2px 2px 2px 2px black;  
+  background-color: #F5F5F5;
+  margin: 10px 15% 15px 15%;
+  padding: 10px;
+
+  span {
+    color: red;
+  }
+
+  .usage {
+    padding: 15px 0;
+  }
+
+  .functions {
+    padding: 15px 0;
+  }
+
+}
 
 
 

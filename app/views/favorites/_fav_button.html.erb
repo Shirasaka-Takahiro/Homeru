@@ -7,5 +7,5 @@
     <%= report.favorites.count %>
   <% end %>
 <% else %>
-  <p><%= report.favorites.count %></p>
+  <span class="heart"><%= fa_icon("heart") %></span><%= report.favorites.count %>
 <% end %>

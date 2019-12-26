@@ -18,6 +18,8 @@
     </div>
     <% if user_signed_in? %>
       <%= render partial: 'comments/form', locals: { comment: @comment, report: @report } %>
+    <% else %>
+      <section><%= link_to "コメントしてみませんか？", new_user_registration_path, class: 'btn' %></section>
     <% end %>
   </div>
 </div>
