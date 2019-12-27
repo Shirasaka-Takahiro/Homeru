@@ -19,5 +19,6 @@ class Report < ApplicationRecord
     mount_uploader :image, ImageUploader
 
     validates :title, presence: true, length: { minimum: 3 }
+    validates :content, length: { maximum: 100 }
     validates :image, presence: true
 end

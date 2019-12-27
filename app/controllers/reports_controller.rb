@@ -30,7 +30,7 @@ class ReportsController < ApplicationController
 
     if report.save!
        redirect_to reports_url
-       flash[:notice] = "#{user.username}さんが#{report.title}を投稿しました。"
+       flash[:notice] = "#{current_user.username}さんが#{report.title}を投稿しました。"
     else
       render "new"
     end

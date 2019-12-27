@@ -3,6 +3,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
+  process :fix_exif_rotation
+
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -39,7 +41,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb100 do
-    process resize_to_fit: [100, 100]
+    process resize_to_fill: [100, 100]
   end
 
   version :thumb100x50 do
@@ -65,6 +67,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   process :resize_to_limit => [640, 640]
+
+  def fix_exif_rotation
+    manipulate! do |img|
+      img.auto_orient!
+      img = yield(img) if block_given?
+      img
+    end
+  end
 
 
   # Override the filename of the uploaded files:
