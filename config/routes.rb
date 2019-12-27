@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'description_english/index'
   root to: 'reports#index'
 
   resources :reports do

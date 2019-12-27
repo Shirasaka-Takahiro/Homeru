@@ -1,5 +1,12 @@
 <div id="description">
 <h1>Homeruとは</h1>
+<div class="language">
+  <% if current_page?(descriptions_path) %>
+    <span><%= link_to 'English', description_english_index_path, class: "btn" %></span>
+  <% else %>
+    <span><%= link_to '日本語', description_path, class: "btn" %></span>
+  <% end %>
+</div>
 <div class="app_description">
   <p>こんにちは！ 作成者のShirasaka-Takahiro(<a href="https://www.twitter.com/daikyoukin913" target="_blank">@daikyoukin913</a>)です！</p>
   <p>突然ですが、最近誰かから褒められましたか？？</p>
