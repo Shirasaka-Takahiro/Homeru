@@ -8,6 +8,9 @@
       <%= image_tag 'noimage.png', :size => '50x50', class: 'user_image' %>
     <% end %>
     <%= @report.user.username %>
+    <% if user_signed_in? && @report.user_id == current_user.id %>
+      <span><%= link_to '投稿を削除', @report, method: :delete, data:{ confirm: "削除してもよろしいですか？"}, class: 'btn delete_btn' %></span>
+    <% end %>
     <p class="report_title">タイトル: <%= @report.title %></p>
     <%= image_tag @report.image_url, class: "image" %>
     <%= @report.created_at %>

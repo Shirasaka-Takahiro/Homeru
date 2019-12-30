@@ -121,6 +121,17 @@ h1 {
 
 }
 
+// report_error
+
+.report_error {
+  text-align: center;
+  
+  #error_explanation {
+    display: inline-block;
+  }
+
+}
+
 // report_new 
 
 .report_new {
@@ -157,7 +168,7 @@ h1 {
 .report {
     box-shadow: 2px 2px 2px 2px black;
     padding: 10px;
-    margin: 20px 15% 25px 15%;
+    margin: 20px 15% 50px 15%;
     background-color: #F5F5F5;
 
     .report_comment {
@@ -189,9 +200,11 @@ h1 {
     text-align: center;
   }
 
-  section {
-    text-align: center;
+  .delete_btn {
+    width: auto;
+    float: right;
   }
+
 
 }
 

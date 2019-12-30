@@ -26,18 +26,22 @@ class ReportsController < ApplicationController
   end
 
   def create
-    report = current_user.reports.build(report_params)
+    @report = current_user.reports.build(report_params)
 
-    if report.save!
-       redirect_to reports_url
-       flash[:notice] = "#{current_user.username}さんが#{report.title}を投稿しました。"
+    if @report.save
+      redirect_to reports_path
+      flash[:notice] = "#{current_user.username}さんが#{@report.title}を投稿しました。"
     else
-      render "new"
+      render :new
     end
     
   end
 
   def destroy
+    @report = Report.find(params[:id])
+    @report.destroy
+    flash[:notice] = "投稿#{@report.title}を削除しました"
+    redirect_to reports_url
   end
 
   private
