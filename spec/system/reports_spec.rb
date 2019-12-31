@@ -89,6 +89,27 @@ RSpec.describe "report機能", type: :system do
 
       end
 
+      describe '投稿検索機能' do
+
+        it '投稿が表示' do
+          click_on '新規投稿' # click new report
+          fill_in 'report_title', with: 'Hennn' # fill in title
+          attach_file 'report_image', "#{Rails.root}/app/assets/images/UNADJUSTEDNONRAW_thumb_b.jpg" # attach image
+          fill_in 'report_content', with: 'Sup' # fill in content
+          click_button '投稿' # click create
+          fill_in 'search', with: 'Hennn' # fill in serch box
+          click_on '投稿を検索' # click search button
+          expect(page).to have_content 'Hennn' # confirm the report
+        end
+
+        it '表示されない' do
+          fill_in 'search', with: 'hoihoi' # fill in serch box
+          click_on '投稿を検索' # click search button
+          expect(page).not_to have_content 'hoihoi' # confirm the report
+        end
+
+      end
+
 
     end
 
