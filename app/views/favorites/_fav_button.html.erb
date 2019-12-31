@@ -1,11 +1,12 @@
 <% if user_signed_in? %>
   <% if report.favorited_by?(current_user) %>
     <%= link_to fa_icon("heart"), report_favorites_path(report.id), method: :delete, class: 'heart' %>
-    <%= report.favorites.count %>
+    <span class="count"><%= report.favorites.count %></span>
   <% else %>
     <%= link_to fa_icon("heart"), report_favorites_path(report.id), method: :post, class: 'heart' %>
-    <%= report.favorites.count %>
+    <span class="count"><%= report.favorites.count %></span>
   <% end %>
 <% else %>
-  <p><%= report.favorites.count %></p>
+  <span class="heart"><%= fa_icon("heart") %></span><%= report.favorites.count %>
+  <p><%= link_to 'ログインしてお気に入りする', new_user_registration_path, class: 'btn' %></p>
 <% end %>

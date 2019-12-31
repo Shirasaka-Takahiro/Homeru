@@ -5,7 +5,7 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.build(report_id: params[:report_id])
     favorite.save
     flash[:notice] = "投稿 #{report.title}をお気に入りしました"
-    redirect_to reports_url
+    redirect_to report_url(report.id)
   end
 
   def destroy
@@ -13,7 +13,7 @@ class FavoritesController < ApplicationController
     favorite = Favorite.find_by(report_id: params[:report_id], user_id: current_user.id)
     favorite.destroy
     flash[:notice] = "投稿 #{report.title}のお気に入りを解除しました"
-    redirect_to reports_url
+    redirect_to report_url(report.id)    
   end
 
 end

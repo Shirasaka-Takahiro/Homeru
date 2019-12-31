@@ -1,5 +1,16 @@
 <h1>新規投稿</h1>
 <%= form_with model: @report, local: true do | f | %>
+  <div class="report_error">
+  <% if @report.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <ul>
+        <% @report.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  </div>
   <div class="report_new">
     <div class="new">
       <div class="form-group">

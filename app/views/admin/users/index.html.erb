@@ -1,7 +1,7 @@
 <h1>ユーザー一覧画面</h1>
 <%= form_tag(admin_users_path, :method => 'get') do %>
   <div class="user_search">
-    <%= text_field_tag :search %>
+    <%= text_field_tag :search,'', placeholder: "名前を入力" %>
     <%= submit_tag "名前を検索", :name => nil, class: "btn primary" %>
   </div>
 <% end %>

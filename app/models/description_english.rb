@@ -1,0 +1,2 @@
+class DescriptionEnglish < ApplicationRecord
+end

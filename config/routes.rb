@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'comments/create'
-  get 'comments/destroy'
+  get 'description_english/index'
   root to: 'reports#index'
 
   resources :reports do
@@ -20,5 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :users
+
+  resources :descriptions
 
 end
