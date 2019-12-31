@@ -80,6 +80,8 @@ test:
 #
 production:
   <<: *default
-  database: Homeru_production
+  database: postgresql
+  encoding: unicode
+  pool: 5
   username: Homeru
   password: <%= ENV['HOMERU_DATABASE_PASSWORD'] %>
