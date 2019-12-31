@@ -6,7 +6,7 @@
 
     <div class="image">
       <% if @user.image? %>
-        <p><%= image_tag @user.image.thumb100.url, class: 'user_image' %></p>
+        <p><%= image_tag @user.image.thumb100.url.to_s, class: 'user_image' %></p>
       <% else %>
         <p><%= image_tag 'noimage.png', :size => '100x100', class: 'user_image' %></p>
       <% end %>

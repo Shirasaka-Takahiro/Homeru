@@ -3,7 +3,7 @@
   <section><%= link_to "一覧画面", reports_url, class: "btn index_btn" %></section>
   <div class="report_description">
     <% if @report.user.image? %>
-      <%= image_tag @report.user.image.thumb50.url, class: 'user_image' %>
+      <%= image_tag @report.user.image.thumb50.url.to_s, class: 'user_image' %>
     <% else %>
       <%= image_tag 'noimage.png', :size => '50x50', class: 'user_image' %>
     <% end %>

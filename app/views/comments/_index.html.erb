@@ -1,7 +1,7 @@
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
   <% if comment.user.image? %>
-    <%= image_tag comment.user.image.thumb30.url, class: "user_image" %>
+    <%= image_tag comment.user.image.thumb30.url.to_s, class: "user_image" %>
   <% else %>
     <%= image_tag 'noimage.png', :size => '30x30', class: "user_image" %>
   <% end %>
