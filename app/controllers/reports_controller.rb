@@ -1,6 +1,6 @@
 class ReportsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  PER = 7
+  PER = 5
 
   def show
     @report = Report.find(params[:id])

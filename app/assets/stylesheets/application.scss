@@ -44,6 +44,16 @@ $sp: 480px;  // smartphone
     }
 }
 
+// header_fixed
+
+.is-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
+
 // heart-icon 
 
 .heart {
@@ -93,8 +103,9 @@ h1 {
 // dropdown-menu
 
 .dropdown-menu {
-  background-color: #F5F5F5;
+  background-color:#F5F5F5;
   text-align: center;
+  border: solid 0.5px black;
   border-radius: 8%;
 }
 
@@ -337,7 +348,6 @@ h1 {
   }
 
 }
-
 
 
 

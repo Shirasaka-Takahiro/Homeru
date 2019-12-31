@@ -5,20 +5,22 @@
 <h3>機能一覧</h3>
 
 ・画像アップロード機能
-・画像詳細機能
+・投稿詳細機能
 ・ログイン、ログアウト機能(Twitter, Facebookによるログイン可能)
+・ユーザー登録、退会機能
 ・管理者機能（登録ユーザーを管理）
 ・ユーザー詳細機能
 ・お気に入り機能
 ・コメント機能
 ・ページネーション機能
-・検索機能
-・ソート機能
+・検索機能(投稿、ユーザー)
+・投稿ソート機能
 
 <h3>使用技術一覧</h3>
 
 ・Ruby on Rails -v 6.0.2
 ・AWS（本番環境にデプロイ）
+・AWS S3
 ・bootstrap
 ・carrierwave
 ・rmagic
@@ -28,6 +30,7 @@
 ・Ajax(コメント機能)
 ・kaminari（ページネーション機能）
 ・faker
+・obscenity(NGワード設定)
 
 ・環境構築 -> Virtual Box + Vagrant
 ・テスト -> Capybara + RSpec
