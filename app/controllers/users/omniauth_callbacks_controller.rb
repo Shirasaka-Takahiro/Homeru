@@ -31,14 +31,67 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # end
 
      # callback for facebook
-    def facebook
-      callback_for(:facebook)
-    end
+    # def google_oauth2
+    #   callback_for(:google)
+    # end
 
     # callback for twitter
-    def twitter
-      callback_for(:twitter)
+    # def twitter
+    #   callback_for(:twitter)
+    # end
+
+    def facebook
+
+      # Facebook上でメール使用を許可しているかの分岐
+      if request.env['omniauth.auth'].info.email.blank?
+        redirect_to '/users/auth/facebook?auth_type=rerequest&scope=email'
+      end
+  
+      # User.from_omniauthはModel側で実装
+      user = User.from_omniauth(request.env['omniauth.auth'])
+  
+      # すでにuserが登録済みかの判定
+      if user
+        # 登録済みならログイン
+        sign_in_and_redirect user, event: :authentication
+        set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?
+      else
+        # 新規登録用にセッションに必要情報を格納
+        if (data = request.env['omniauth.auth'])
+          session['devise.omniauth_data'] = {
+              email: data['info']['email'],
+              provider: data['provider'],
+              uid: data['uid']
+          }
+          end
+          redirect_to new_user_registration_url
+      end
     end
+  
+    def failure
+      redirect_to root_path
+    end
+  
+    def twitter
+      user = User.from_omniauth(request.env['omniauth.auth'])
+      if user
+        sign_in_and_redirect user, event: :authentication
+        set_flash_message(:notice, :success, kind: "Twitter") if is_navigational_format?
+      else
+        if (data = request.env['omniauth.auth'])
+          session['devise.omniauth_data'] = {
+              email: data['info']['email'],
+              provider: data['provider'],
+              uid: data['uid']
+          }
+        end
+        redirect_to new_user_registration_url
+      end
+    end
+  
+  
+
+
 
    
     # private
@@ -56,22 +109,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     #     redirect_to new_user_registration_url
     #   end
     # end
-
-    # common callback method
-    def callback_for(provider)
-      @user = User.from_omniauth(request.env["omniauth.auth"])
-      if @user.persisted?
-        sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated
-        set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
-      else
-        session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
-        redirect_to new_user_registration_url
-      end
-    end
-
-    def failure
-      redirect_to root_path
-    end
+  end
+    
 
 
 
