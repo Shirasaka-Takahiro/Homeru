@@ -113,7 +113,7 @@ GEM
       railties (>= 4.2.0)
     faker (2.10.0)
       i18n (>= 1.6, < 1.8)
-    faraday (0.17.1)
+    faraday (1.0.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.3)
     fog-aws (3.5.2)
@@ -204,7 +204,7 @@ GEM
     omniauth (1.9.0)
       hashie (>= 3.4.6, < 3.7.0)
       rack (>= 1.6.2, < 3)
-    omniauth-facebook (5.0.0)
+    omniauth-facebook (3.0.0)
       omniauth-oauth2 (~> 1.2)
     omniauth-oauth (1.1.0)
       oauth
@@ -273,7 +273,7 @@ GEM
     rspec-expectations (3.9.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
-    rspec-mocks (3.9.0)
+    rspec-mocks (3.9.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-rails (3.9.0)
@@ -368,7 +368,7 @@ DEPENDENCIES
   loofah (>= 2.3.1)
   obscenity
   omniauth
-  omniauth-facebook
+  omniauth-facebook (~> 3.0.0)
   omniauth-twitter
   pg (>= 0.18, < 2.0)
   poltergeist
