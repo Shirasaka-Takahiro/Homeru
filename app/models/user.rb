@@ -40,6 +40,7 @@ class User < ApplicationRecord
         user.uid = data['uid'] if data['uid'] && user.uid.blank?
         user.skip_confirmation!
       end
+    end
   end
 
   def self.search(search)
