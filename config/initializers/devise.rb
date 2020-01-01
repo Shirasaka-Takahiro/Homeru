@@ -261,7 +261,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :twitter, ENV['TWITTER_ID'], ENV['TWITTER_APP_SECRET'], scope: 'email', callback_url: 'https://homeru913.herokuapp.com/users/auth/twitter/callback'
-  config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET_KEY'], info_fields: 'email', callback_url: " https://homeru913.herokuapp.com/users/auth/facebook/callback", token_params: { parse: :json }
+  config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET_KEY'], info_fields: 'email', callback_url: " https://homeru913.herokuapp.com/users/auth/facebook/callback"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
