@@ -30,6 +30,30 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       callback_from :facebook
     end
 
+    def facebook
+      auth = request.env["omniauth.auth"]
+      @user = User.where(provider: auth.provider, provider_uid: auth.uid).first
+      unless @user
+        @user = User.create(
+            name:     auth.info.name,
+            email:    fake_email(auth), # (ダミーのメールアドレスを生成)
+            provider: auth.provider,
+            provider_token:    auth.credentials.token,
+            provider_uid: auth.uid,
+            password: Devise.friendly_token[0,20],
+        )
+    end
+  
+  
+      if @user.persisted?              # 以下はログイン処理
+        set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?
+        sign_in_and_redirect @user, event: :authentication
+      else                             # 失敗した場合
+        session["devise.facebook_data"] = request.env["omniauth.auth"]
+        redirect_to new_user_registration_url
+      end
+    end
+
    
     private
    
