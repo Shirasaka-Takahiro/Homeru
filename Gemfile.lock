@@ -368,7 +368,7 @@ DEPENDENCIES
   loofah (>= 2.3.1)
   obscenity
   omniauth
-  omniauth-facebook (~> 3.0.0)
+  omniauth-facebook
   omniauth-twitter
   pg (>= 0.18, < 2.0)
   poltergeist
