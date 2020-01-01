@@ -19,8 +19,8 @@
 <h3>使用技術一覧</h3>
 
 ・Ruby on Rails -v 6.0.2
-・AWS（本番環境にデプロイ）
-・AWS S3
+・Heroku(本番環境)
+・AWS S3(画像アップロード)
 ・bootstrap
 ・carrierwave
 ・rmagic

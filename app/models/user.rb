@@ -13,7 +13,7 @@ class User < ApplicationRecord
   
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
- 
+
     unless user
       user = User.create(
         uid:      auth.uid,
@@ -21,10 +21,12 @@ class User < ApplicationRecord
         email:    User.dummy_email(auth),
         password: Devise.friendly_token[0, 20],
         image: auth.info.image,
-        username: auth.info.name,
+        name: auth.info.name,
+        nickname: auth.info.nickname,
+        location: auth.info.location
       )
     end
- 
+
     user
   end
 
