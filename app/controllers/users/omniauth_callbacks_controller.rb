@@ -67,11 +67,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           redirect_to new_user_registration_url
       end
     end
-  
+
     def failure
       redirect_to root_path
     end
-  
+
     def twitter
       user = User.from_omniauth(request.env['omniauth.auth'])
       if user
@@ -88,6 +88,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         redirect_to new_user_registration_url
       end
     end
+  
+    
   
   
 
