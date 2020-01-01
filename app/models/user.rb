@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :trackable,
-         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :twitter]
+         :recoverable, :rememberable, :validatable, :omniauthable
 
   mount_uploader :image, ImageUploader
 
@@ -11,36 +11,21 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   
-  # def self.find_for_oauth(auth)
-  #   user = User.where(uid: auth.uid, provider: auth.provider).first
+  def self.find_for_oauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
  
-  #   unless user
-  #     user = User.create(
-  #       uid:      auth.uid,
-  #       provider: auth.provider,
-  #       email:    User.dummy_email(auth),
-  #       password: Devise.friendly_token[0, 20],
-  #       image: auth.info.image,
-  #       username: auth.info.name,
-  #     )
-  #   end
- 
-  #   user
-  # end
-
-  def self.from_omniauth(auth)
-    where(uid: auth.uid).first
-  end
-
-  def self.new_with_session(_, session)
-    super.tap do |user|
-      if (data = session['devise.omniauth_data'])
-        user.email = data['email'] if user.email.blank?
-        user.provider = data['provider'] if data['provider'] && user.provider.blank?
-        user.uid = data['uid'] if data['uid'] && user.uid.blank?
-        user.skip_confirmation!
-      end
+    unless user
+      user = User.create(
+        uid:      auth.uid,
+        provider: auth.provider,
+        email:    User.dummy_email(auth),
+        password: Devise.friendly_token[0, 20],
+        image: auth.info.image,
+        username: auth.info.name,
+      )
     end
+ 
+    user
   end
 
   def self.search(search)
