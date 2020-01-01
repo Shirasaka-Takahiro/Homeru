@@ -2,29 +2,38 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable, :trackable
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook twitter], :trackable
 
   mount_uploader :image, ImageUploader
 
   has_many :reports, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+
   
-  def self.find_for_oauth(auth)
-    user = User.where(uid: auth.uid, provider: auth.provider).first
+  # def self.find_for_oauth(auth)
+  #   user = User.where(uid: auth.uid, provider: auth.provider).first
  
-    unless user
-      user = User.create(
-        uid:      auth.uid,
-        provider: auth.provider,
-        email:    User.dummy_email(auth),
-        password: Devise.friendly_token[0, 20],
-        image: auth.info.image,
-        username: auth.info.name,
-      )
+  #   unless user
+  #     user = User.create(
+  #       uid:      auth.uid,
+  #       provider: auth.provider,
+  #       email:    User.dummy_email(auth),
+  #       password: Devise.friendly_token[0, 20],
+  #       image: auth.info.image,
+  #       username: auth.info.name,
+  #     )
+  #   end
+ 
+  #   user
+  # end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.username
     end
- 
-    user
   end
 
   def self.search(search)
